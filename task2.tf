@@ -90,6 +90,8 @@ resource "aws_security_group" "efs_sg" {
   }
 }
 
+// Creating EFS cluster
+	
 resource "aws_efs_file_system" "httpd_efs" {
   depends_on = [
     aws_security_group.efs_sg
@@ -215,7 +217,8 @@ cloudfront_default_certificate = true
 retain_on_delete = true
 }
 
-
+// creating the 1st EC2 Instance
+	
 resource "aws_instance" "HttpdInstance_1" {
 
 depends_on = [
@@ -250,6 +253,8 @@ depends_on = [
   }
 }
 
+// creating the 2nd EC2 Instance
+	
 resource "aws_instance" "HttpdInstance_2" {
 
 depends_on = [
